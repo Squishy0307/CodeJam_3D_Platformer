@@ -45,14 +45,9 @@ public class HealthSystem : MonoBehaviour
                 hearts[i].enabled = false;
             }
         }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            GotHit();
-        }
     }
 
-    void GotHit()
+    public void GotHit()
     {
         health--;
         movement.Knocked();

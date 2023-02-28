@@ -110,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            ScreenFlasher.Instance.screenFlash();
+            GetComponent<HealthSystem>().GotHit();
         }
     }
 
