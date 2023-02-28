@@ -10,6 +10,14 @@ public class HealthSystem : MonoBehaviour
     public Sprite fullHeart;
     public Sprite emptyHeart;
 
+    private PlayerMovement movement;
+    public GameObject loseCanvasObj;
+
+    private void Start()
+    {
+        movement = GetComponent<PlayerMovement>();
+    }
+
     public void Update()
     {
         if (health > numHearts)
@@ -37,16 +45,24 @@ public class HealthSystem : MonoBehaviour
                 hearts[i].enabled = false;
             }
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            GotHit();
+        }
     }
 
-    void Damage()
+    void GotHit()
     {
         health--;
+        movement.Knocked();
+
+        ScreenFlasher.Instance.screenFlash();
+        CameraShaker.Instance.shakeNow(transform.position, 0.3f);
 
         if (health <= 0)
         {
-            Canvas canvas = GetComponent<Canvas>();
-            canvas.gameObject.SetActive(true);
+            loseCanvasObj.gameObject.SetActive(true);
         }
     }
 }

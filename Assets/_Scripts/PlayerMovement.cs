@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] int MaxNumberOfJumps = 2;
     [SerializeField] float coyoteTime = 0.2f;
     [SerializeField] float airMultiplier;
+    [SerializeField] float knockBackForceZ;
+    [SerializeField] float knockBackForceY;
+    [SerializeField] Transform playerObj;
 
     private float moveSpeed;
     private float coyoteTimeCounter;
@@ -42,7 +45,11 @@ public class PlayerMovement : MonoBehaviour
     [Header("Events")]
     [SerializeField] UnityEvent onLand;
     [SerializeField] UnityEvent onJump;
-    
+
+    [Header("Particles")]
+    [SerializeField] GameObject LandingParticles;
+    [SerializeField] GameObject JumpParticles;
+    [SerializeField] ParticleSystem RunParticles;
 
     private bool onMovingPlatform;
     private bool canApplyDownwardForce;
@@ -100,12 +107,13 @@ public class PlayerMovement : MonoBehaviour
             rb.drag = inAirDrag;
             coyoteTimeCounter -= Time.deltaTime;
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            ScreenFlasher.Instance.screenFlash();
+        }
     }
 
-    public void Landed()
-    {
-        Debug.Log("Broken Ankle");
-    }
 
     private void FixedUpdate()
     {
@@ -231,6 +239,8 @@ public class PlayerMovement : MonoBehaviour
     {
         exitingSlope = true;
         onMovingPlatform = false;
+        StartCoroutine(PlayParticles(JumpParticles));
+        RunParticles.Stop();
         onJump.Invoke();
 
         //reset y velocity so it will always jump the exact same height
@@ -238,6 +248,33 @@ public class PlayerMovement : MonoBehaviour
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
+
+    public void Landed()
+    {
+        Debug.Log("Broken Ankle");
+        RunParticles.Play();
+        CameraShaker.Instance.shakeNow(transform.position, 0.1f);
+        StartCoroutine(PlayParticles(LandingParticles));
+    }
+
+    IEnumerator PlayParticles(GameObject obj)
+    {
+        obj.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
+        obj.SetActive(false);
+    }
+
+    public void Knocked()
+    {
+        Vector3 KnockBackForce = -playerObj.forward * knockBackForceZ;
+        Vector3 force = new Vector3(KnockBackForce.x, knockBackForceY, KnockBackForce.z);
+
+        Debug.Log(KnockBackForce);
+        Debug.Log(force);
+
+        rb.AddForce(force, ForceMode.Impulse);
+    }
+
 
     void ResetJump()
     {
