@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 67213491}
-  m_IndirectSpecularColor: {r: 0.25810838, g: 0.6908126, b: 0.81899774, a: 1}
+  m_IndirectSpecularColor: {r: 0.25810277, g: 0.6908051, b: 0.81899595, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3225,7 +3225,7 @@ GameObject:
   - component: {fileID: 876264165}
   - component: {fileID: 876264164}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Hearts Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5336,32 +5336,6 @@ Transform:
   m_Father: {fileID: 314929213}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1884651489 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2825742073742389045, guid: d80b30bc70ab23746a60997ace2a6701,
-    type: 3}
-  m_PrefabInstance: {fileID: 2825742074160218500}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1884651491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1884651489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29146607e49c19843998c17ee9952ec0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  numHearts: 3
-  hearts:
-  - {fileID: 1143270803}
-  - {fileID: 404305308}
-  - {fileID: 929594463}
-  fullHeart: {fileID: 21300000, guid: be340a165cb9c8d4cb50f1deeb51d4ea, type: 3}
-  emptyHeart: {fileID: 21300000, guid: 36e6970b84831434a9eac79abd03700b, type: 3}
 --- !u!1001 &2045877518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5720,12 +5694,12 @@ PrefabInstance:
     - target: {fileID: 390369394944611662, guid: 66181eaaaf1a06b4fbb8872c70eeae0a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000018767812
+      value: 0.000000018767818
       objectReference: {fileID: 0}
     - target: {fileID: 390369394944611662, guid: 66181eaaaf1a06b4fbb8872c70eeae0a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000042241473
+      value: -0.000000004224149
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66181eaaaf1a06b4fbb8872c70eeae0a, type: 3}
@@ -5943,6 +5917,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62087671238298470, guid: d80b30bc70ab23746a60997ace2a6701,
+        type: 3}
+      propertyPath: hearts.Array.data[0]
+      value: 
+      objectReference: {fileID: 1143270803}
+    - target: {fileID: 62087671238298470, guid: d80b30bc70ab23746a60997ace2a6701,
+        type: 3}
+      propertyPath: hearts.Array.data[1]
+      value: 
+      objectReference: {fileID: 404305308}
+    - target: {fileID: 62087671238298470, guid: d80b30bc70ab23746a60997ace2a6701,
+        type: 3}
+      propertyPath: hearts.Array.data[2]
+      value: 
+      objectReference: {fileID: 929594463}
     - target: {fileID: 2825742073742389045, guid: d80b30bc70ab23746a60997ace2a6701,
         type: 3}
       propertyPath: m_Name
@@ -6317,22 +6306,22 @@ PrefabInstance:
     - target: {fileID: 7991120602194654519, guid: 84b49fda56b648d41ab0b048e5825002,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000018767812
+      value: 0.000000018767818
       objectReference: {fileID: 0}
     - target: {fileID: 7991120602194654519, guid: 84b49fda56b648d41ab0b048e5825002,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000042241473
+      value: -0.000000004224149
       objectReference: {fileID: 0}
     - target: {fileID: 7991120602795797275, guid: 84b49fda56b648d41ab0b048e5825002,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000008392402
+      value: 0.000000008392402
       objectReference: {fileID: 0}
     - target: {fileID: 7991120602795797275, guid: 84b49fda56b648d41ab0b048e5825002,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000018927417
+      value: -0.0000000018927417
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84b49fda56b648d41ab0b048e5825002, type: 3}
