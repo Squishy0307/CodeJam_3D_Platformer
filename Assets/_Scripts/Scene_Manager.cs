@@ -14,17 +14,8 @@ public class Scene_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Do not this destroy this object on changing scenes.
-        if (instance != null)
-        {
-            GameObject.Destroy(this.gameObject);
-        }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        
+        instance = this;
+
         //Keeps track of the current scene that is running;
         currentScene = SceneManager.GetActiveScene().name;
     }

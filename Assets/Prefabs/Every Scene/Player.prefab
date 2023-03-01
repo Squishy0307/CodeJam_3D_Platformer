@@ -977,7 +977,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 18
+        scalar: 10
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -1619,8 +1619,8 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.3
-      minScalar: 0.45
+      scalar: 0.05
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4905,7 +4905,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &705857089
 Transform:
   m_ObjectHideFlags: 0
@@ -10696,7 +10696,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -14948,7 +14948,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1fae23d9f022450419a348b38b27a850, type: 2}
+  - {fileID: 2100000, guid: 8ae2ea9ad362a864eb2e5ecb1f43ea94, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15097,6 +15097,9 @@ MonoBehaviour:
   - {fileID: 0}
   fullHeart: {fileID: 21300000, guid: be340a165cb9c8d4cb50f1deeb51d4ea, type: 3}
   emptyHeart: {fileID: 21300000, guid: 36e6970b84831434a9eac79abd03700b, type: 3}
+  loseCanvasObj: {fileID: 0}
+  invinsiblityTime: 1.5
+  hitEffectMat: {fileID: 2100000, guid: e274d252f22e37941806e0497d1b1197, type: 2}
 --- !u!1 &2825742074032071969
 GameObject:
   m_ObjectHideFlags: 0
@@ -15159,7 +15162,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1fae23d9f022450419a348b38b27a850, type: 2}
+  - {fileID: 2100000, guid: 8ae2ea9ad362a864eb2e5ecb1f43ea94, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
