@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main/Main_Level.unity
     guid: 41e4f5331745d574e87da9d6ecc00b88
+  - enabled: 1
+    path: Assets/Scenes/Test/Rohan.unity
+    guid: 342ea1f22f431d64fbb898f7aeb4e804
   m_configObjects: {}
