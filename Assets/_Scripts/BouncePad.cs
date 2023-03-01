@@ -13,6 +13,7 @@ public class BouncePad : MonoBehaviour
     {
 
         Rigidbody rb = other.transform.parent.GetComponent<Rigidbody>();
+        rb.velocity = Vector3.zero;
         rb.AddForce(Vector3.up * bounceHeight);
         Debug.Log("Bouncing");
     }
