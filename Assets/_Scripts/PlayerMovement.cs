@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float moveSpeed;
     private float coyoteTimeCounter;
+    private bool gotKnocked = false;
+    private bool isDead = false;
     bool readyToJump = true;
     int doubleJumpCounter = 1;
 
@@ -165,49 +167,51 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
-        //calculate movement direction
-        moveDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
-        //on slope
-        if (OnSlope() && !exitingSlope)
+        if (!gotKnocked && !isDead)
         {
-            rb.AddForce(GetSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
+            //calculate movement direction
+            moveDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-            if (rb.velocity.y > 0)
+            //on slope
+            if (OnSlope() && !exitingSlope)
             {
-                rb.AddForce(Vector3.down * 80f, ForceMode.Force);
-            }
-        }
+                rb.AddForce(GetSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
 
-        else if (onMovingPlatform)
-        {
-            //Vector3 targetVel = velocity + (moveDir.normalized * 5 * moveSpeed);
-            //rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVel, ref refVel, 0.001f);
-
-            rb.AddForce(moveDir.normalized * moveSpeed * 10, ForceMode.Force);
-
-            if (canApplyDownwardForce && rb.velocity.y < 0)
-            {
-                rb.AddForce(Vector3.down * 0.05f, ForceMode.Force);
+                if (rb.velocity.y > 0)
+                {
+                    rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+                }
             }
 
-        }
+            else if (onMovingPlatform)
+            {
+                //Vector3 targetVel = velocity + (moveDir.normalized * 5 * moveSpeed);
+                //rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVel, ref refVel, 0.001f);
 
-        //on ground
-        else if (isGrounded)
-        {
-            rb.AddForce(moveDir.normalized * moveSpeed * 10, ForceMode.Force);
-        }
-        //in air
-        else if (!isGrounded)
-        {
-            rb.AddForce(moveDir.normalized * moveSpeed * 10 * airMultiplier, ForceMode.Force);
-        }
+                rb.AddForce(moveDir.normalized * moveSpeed * 10, ForceMode.Force);
 
-        //turn of gravity when on slope so character no longer slides on the slope
-        if(!onMovingPlatform)
-            rb.useGravity = !OnSlope();
+                if (canApplyDownwardForce && rb.velocity.y < 0)
+                {
+                    rb.AddForce(Vector3.down * 0.05f, ForceMode.Force);
+                }
 
+            }
+
+            //on ground
+            else if (isGrounded)
+            {
+                rb.AddForce(moveDir.normalized * moveSpeed * 10, ForceMode.Force);
+            }
+            //in air
+            else if (!isGrounded)
+            {
+                rb.AddForce(moveDir.normalized * moveSpeed * 10 * airMultiplier, ForceMode.Force);
+            }
+
+            //turn of gravity when on slope so character no longer slides on the slope
+            if (!onMovingPlatform)
+                rb.useGravity = !OnSlope();
+        }
     }
 
     void SpeedControl()
@@ -266,15 +270,23 @@ public class PlayerMovement : MonoBehaviour
 
     public void Knocked()
     {
+        rb.velocity = Vector3.zero;
+
         Vector3 KnockBackForce = -playerObj.forward * knockBackForceZ;
         Vector3 force = new Vector3(KnockBackForce.x, knockBackForceY, KnockBackForce.z);
 
-        Debug.Log(KnockBackForce);
-        Debug.Log(force);
-
         rb.AddForce(force, ForceMode.Impulse);
+
+        StartCoroutine(knockedInputDelay());
+
     }
 
+    IEnumerator knockedInputDelay()
+    {
+        gotKnocked = true;
+        yield return new WaitForSeconds(0.8f);
+        gotKnocked = false;
+    }
 
     void ResetJump()
     {
@@ -302,5 +314,10 @@ public class PlayerMovement : MonoBehaviour
     {
         onMovingPlatform = onPlatform;
         canApplyDownwardForce = applyDownwardForce;
+    }
+
+    public void Dead()
+    {
+        isDead = true;
     }
 } 
