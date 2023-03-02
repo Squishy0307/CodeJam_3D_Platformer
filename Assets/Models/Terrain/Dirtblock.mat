@@ -10,8 +10,12 @@ Material:
   m_Name: Dirtblock
   m_Shader: {fileID: 4800000, guid: e88aeddd2ef1f934d805981244872e27, type: 3}
   m_ValidKeywords:
-  - _HALFTONESHAPE_DOT
-  m_InvalidKeywords: []
+  - _HALFTONESHAPE_STRIPE
+  - _RIMLIGHTING_ON
+  - _SPECULAR_COLOR
+  m_InvalidKeywords:
+  - _SPECULARHIGHLIGHTS_OFF
+  - _STEPVIARAMPTEXTURE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -87,7 +91,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RampTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 0698622706f7dfb438d69deaae95e6b0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -123,7 +127,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DiffuseStep: 0
+    - _DiffuseStep: -0.327
     - _DitherTexelSize: 1
     - _DitherThreshold: 1
     - _DstBlend: 0
@@ -144,15 +148,15 @@ Material:
     - _HalfToneDiffuseStep: 0
     - _HalfToneEnabled: 0
     - _HalfToneIncludeReceivedShadow: 0
-    - _HalfToneShape: 0
+    - _HalfToneShape: 1
     - _HalfToneUvMode: 0
     - _HalftoneFadeDistance: 10
     - _HalftoneFadeToColor: 0
     - _HalftoneNoiseClip: 0.8
-    - _HalftoneTilling: 8
+    - _HalftoneTilling: 10.17
     - _HatchingDensity: 1
     - _HatchingDiffuseOffset: 0
-    - _HatchingDrawStrength: 1
+    - _HatchingDrawStrength: 0.76
     - _HatchingEnabled: 0
     - _HatchingRotation: 0
     - _HatchingSmoothness: 0.1
@@ -162,50 +166,50 @@ Material:
     - _OcclusionStrength: 1
     - _OutlineEnabled: 0
     - _OutlineMode: 0
-    - _OutlineWidth: 7.37
+    - _OutlineWidth: 15
     - _OverrideShadowColor: 0
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RimEnabled: 0
-    - _RimLightAlign: 0
-    - _RimLightSmoothness: 0
-    - _RimPower: 0.55
+    - _RimEnabled: 1
+    - _RimLightAlign: 0.825
+    - _RimLightSmoothness: 0.871
+    - _RimPower: 0.666
     - _Shininess: 0
     - _SizeFalloff: 0
     - _Smoothness: 0.5
     - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
     - _SpecClipMaskScale: 1
-    - _SpecShadowStrength: 1
+    - _SpecShadowStrength: 0
     - _SpecSource: 0
     - _SpecularClipStrength: 0
     - _SpecularFalloff: 0.5
-    - _SpecularHighlights: 1
-    - _SpecularSize: 0.25
+    - _SpecularHighlights: 0
+    - _SpecularSize: 0.85
     - _SpherizeNormalEnabled: 0
     - _SrcBlend: 1
     - _StencilComp: 0
     - _StencilRef: 0
-    - _StepViaRampTexture: 0
+    - _StepViaRampTexture: 1
     - _Surface: 0
     - _UseRampColor: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.7075472, g: 0.44029877, b: 0.19691172, a: 1}
+    - _BaseColor: {r: 0.68235296, g: 0.43031844, b: 0.3372549, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FaceFrontDirection: {r: 0, g: 0, b: 1, a: 0}
     - _FaceRightDirection: {r: 1, g: 0, b: 0, a: 0}
     - _HairSpecColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HalfToneColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HalfToneColor: {r: 0, g: 0, b: 0, a: 0.209}
     - _HatchingColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineDistancFade: {r: -25, g: 50, b: 0, a: 0}
+    - _OutlineDistancFade: {r: -25, g: 200, b: 0, a: 0}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShadowColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _ShadowColor: {r: 0, g: 0, b: 0, a: 0.624}
+    - _SpecColor: {r: 0.1999999, g: 0.1999999, b: 0.1999999, a: 0.5}
     - _SpherizeNormalOrigin: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6758378807143313785
