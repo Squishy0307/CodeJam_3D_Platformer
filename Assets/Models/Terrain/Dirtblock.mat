@@ -166,7 +166,11 @@ Material:
     - _OcclusionStrength: 1
     - _OutlineEnabled: 0
     - _OutlineMode: 0
+<<<<<<< HEAD
     - _OutlineWidth: 15
+=======
+    - _OutlineWidth: 0
+>>>>>>> parent of d9d81c4 (Changes to TerrainTiles)
     - _OverrideShadowColor: 0
     - _Parallax: 0.005
     - _QueueOffset: 0
